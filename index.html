@@ -1,13 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Company Portal</title>
+<style>
+body{font-family:Arial,sans-serif;background:#08111f;color:#fff;padding:20px}
+.container{max-width:900px;margin:auto}
+.card{background:#111827;border:1px solid #374151;border-radius:16px;padding:20px;margin-bottom:20px}
+input{width:100%;padding:12px;margin:8px 0;border-radius:10px;border:1px solid #374151;background:#0f172a;color:#fff}
+button{width:100%;padding:12px;border:none;border-radius:10px;margin-top:10px;font-weight:bold;cursor:pointer}
+.primary{background:#d4af37;color:#000}
+.secondary{background:#1f2937;color:#fff}
+#adminPanel{display:none}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Premium Company Portal</h1>
 
+<div class="card">
+<h2>Create Account</h2>
+<input type="text" placeholder="Username">
+<input type="email" placeholder="Gmail Address">
+<input type="password" placeholder="Password">
+<button class="primary" onclick="createAccount()">Create Account</button>
+<button class="secondary" onclick="loginUser()">Already have an account? Login</button>
+</div>
+
+<div class="card">
+<h2>Google Verification</h2>
+<button class="primary" onclick="googleVerify()">Sign in with Google</button>
+</div>
+
+<div class="card" id="adminPanel">
+<h2>Admin Panel</h2>
+<p>Only admin can see this section.</p>
+<p><strong>User:</strong> johndoe</p>
+<p><strong>Email:</strong> johndoe@gmail.com</p>
+<p><strong>Status:</strong> Verified</p>
+</div>
+</div>
+
+<script>
+function createAccount() {
+  alert("Account created successfully. Admin review pending.");
+}
+
+function loginUser() {
+  const adminPass = prompt("Enter admin access code (leave blank for normal user login):");
+  if (adminPass === "ADMIN123") {
+    document.getElementById("adminPanel").style.display = "block";
+    alert("Admin panel unlocked.");
+  } else {
+    alert("User login successful. Admin panel remains hidden.");
+  }
+}
+
+function googleVerify() {
+  alert("Google verification started. User permission required.");
+}
+</script>
+</body>
+</html>
